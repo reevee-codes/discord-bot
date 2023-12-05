@@ -14,14 +14,12 @@ public class MaryoBot {
         try {
             shardManager = buildShardManager(token);
         } catch (LoginException e) {
-            System.out.println("Failed to start bot! Please check the console for any errors.");
+            System.out.println("Failed to start bot, RIPPU");
             System.exit(0);
         }
     }
 
-    // The JDA Shardmanager instance - this is the main point of the entire bot
     private ShardManager buildShardManager(String token) throws LoginException {
-        // It is often better to load your token in from an external file or environment variable, especially if you plan on publishing the source code.
         DefaultShardManagerBuilder builder =
                 DefaultShardManagerBuilder.createDefault(token).enableIntents(GatewayIntent.MESSAGE_CONTENT).
                           addEventListeners(new DiscordEventListener(this), new ListenerJakis());

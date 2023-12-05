@@ -1,5 +1,6 @@
 package org.borb;
 
+import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 import net.dv8tion.jda.api.sharding.ShardManager;
 
@@ -22,7 +23,8 @@ public class MaryoBot {
     private ShardManager buildShardManager(String token) throws LoginException {
         // It is often better to load your token in from an external file or environment variable, especially if you plan on publishing the source code.
         DefaultShardManagerBuilder builder =
-                DefaultShardManagerBuilder.createDefault(token);
+                DefaultShardManagerBuilder.createDefault(token).enableIntents(GatewayIntent.MESSAGE_CONTENT).
+                          addEventListeners(new DiscordEventListener(this), new ListenerJakis());
 
         return builder.build();
     }

@@ -8,6 +8,14 @@
     <artifactId>discordbotoo</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <repositories>
+            <repository>
+                <id>dv8tion</id>
+                <name>m2-dv8tion</name>
+                <url>https://m2.dv8tion.net/releases</url>
+            </repository>
+        </repositories>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
@@ -17,7 +25,7 @@
     <dependency>
         <groupId>net.dv8tion</groupId>
         <artifactId>JDA</artifactId>
-        <version>5.0.0-beta.9</version>
+        <version>5.0.0-beta.12</version>
     </dependency>
     <dependency>
         <groupId>org.junit</groupId>
@@ -25,6 +33,11 @@
         <version>5.9.1</version>
         <type>pom</type>
         <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.sedmelluq</groupId>
+        <artifactId>lavaplayer</artifactId>
+        <version>1.3.77</version>
     </dependency>
     <dependency>
         <groupId>commons-cli</groupId>

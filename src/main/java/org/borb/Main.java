@@ -28,6 +28,7 @@ public class Main {
             }
 
             MaryoBot.selfBot = new MaryoBot(token);
+
         } catch (ParseException e) {
             System.out.println(e.getMessage());
             formatter.printHelp("", options);

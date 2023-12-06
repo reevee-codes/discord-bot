@@ -15,6 +15,7 @@ public class CommandManager extends ListenerAdapter {
         String content = message.getContentRaw();
         MessageChannel channel = event.getChannel();
         if (content.equals("!ping")) {
+            //debug purposes
             channel.sendMessage("Pong!").queue();
         }
         if (content.equals("!jacek")) {

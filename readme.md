@@ -1,11 +1,11 @@
 <img src="src/main/resources/assets/borb.gif"/>
 
 <b>PoC discord bot features to implement:</b>
-- custom icons with /papucha, /kicia, /kocia
-- add dates
-- add commentary to dates
-- display dates
-- LATER: display dates, add icon, remind about duolingo at certain hour, remind about papiez
+- custom icons with !kicia, !jacek [x]
+- show current day from calendar api
+- upload bot on server
+- make todo list
+- LATER: add dates to todo list, display dates, add icon from user, remind about duolingo at certain hour, remind about papiez
 
 
 Teaching git to birds:

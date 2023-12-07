@@ -3,7 +3,7 @@ package org.borb;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
 import net.dv8tion.jda.api.sharding.ShardManager;
-import org.borb.commands.CommandManager;
+import org.borb.commands.PictureCommands;
 
 import javax.security.auth.login.LoginException;
 
@@ -23,7 +23,7 @@ public class MaryoBot {
     private ShardManager buildShardManager(String token) throws LoginException {
         DefaultShardManagerBuilder builder =
                 DefaultShardManagerBuilder.createDefault(token).enableIntents(GatewayIntent.MESSAGE_CONTENT).
-                          addEventListeners(new CommandManager());
+                          addEventListeners(new PictureCommands());
 
         return builder.build();
     }

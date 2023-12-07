@@ -2,7 +2,8 @@
 
 <b>PoC discord bot features to implement:</b>
 - custom icons with !kicia, !jacek [x]
-- show current day from calendar api
+- show air quality
+- show current day from calendar api google
 - upload bot on server
 - make todo list
 - LATER: add dates to todo list, display dates, add icon from user, remind about duolingo at certain hour, remind about papiez

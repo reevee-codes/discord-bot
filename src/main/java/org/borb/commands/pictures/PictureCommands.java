@@ -1,4 +1,4 @@
-package org.borb.commands;
+package org.borb.commands.pictures;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;

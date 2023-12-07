@@ -1,4 +1,4 @@
-package org.borb.commands;
+package org.borb.commands.newyorktimes;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
@@ -12,7 +12,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class AirPollution extends ListenerAdapter {
+public class NewYorkTimesCommands extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {

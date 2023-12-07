@@ -2,7 +2,7 @@
 
 <b>PoC discord bot features to implement:</b>
 - custom icons with !kicia, !jacek [x]
-- show air quality
+- show air quality - Ryo todo to understand API and propose formatting
 - show current day from calendar api google
 - upload bot on server
 - make todo list

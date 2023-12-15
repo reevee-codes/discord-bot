@@ -36,5 +36,10 @@ public class PictureCommands extends ListenerAdapter {
             result.setImage("https://media.discordapp.net/attachments/1136329134998556842/1182322757342613606/1182321263973249074remix-1701958107945.png?ex=658446df&is=6571d1df&hm=745441f859937da8ee3e0853f78b9af9821e1bb4bee759f33245cc66ddf7b81b&=&format=webp&quality=lossless&width=671&height=671");
             channel.sendMessageEmbeds(result.build()).queue();
         }
+        if (content.equals("!ganbatte")) {
+            EmbedBuilder result = new EmbedBuilder();
+            result.setImage("https://cdn.discordapp.com/attachments/1136329134998556842/1182335936789479525/image.png?ex=65845326&is=6571de26&hm=0015238dbcd7f48c1e093dede9ec7c5a55d926a0e9770c0c636b2904703fab3d&");
+            channel.sendMessageEmbeds(result.build()).queue();
+        }
     }
 }

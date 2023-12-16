@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -23,11 +24,17 @@ public class NewYorkTimesCommands extends ListenerAdapter {
         if (event.getAuthor().isBot()) return;
         Message message = event.getMessage();
         String content = message.getContentRaw();
+        List<String> arrayInput = new ArrayList();
+        arrayInput = Arrays.stream(content.split(" ")).toList();
+
         MessageChannel channel = event.getChannel();
         List<Article> articles = getMostPopular();
-        if (content.equals("!world")) {
-            EmbedBuilder result = new EmbedBuilder();
-            channel.sendMessage(articles.get(0).toString()).queue();
+        if (content.contains("!world")) {
+
+
+            for (int i = 0; i <= Integer.parseInt(arrayInput.get(1)) ; i++) {
+                channel.sendMessage(articles.get(i).toString()).queue();
+            }
         }
     }
 

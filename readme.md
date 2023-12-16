@@ -1,15 +1,17 @@
 <img src="src/main/resources/assets/borb.gif"/>
 
-<b>PoC discord bot features to implement:</b>
-- custom icons with !kicia, !jacek [x]
-- show air quality - Ryo todo to understand API and propose formatting
-- show current day from calendar api google
-- upload bot on server
-- make todo list
-- LATER: add dates to todo list, display dates, add icon from user, remind about duolingo at certain hour, remind about papiez
+<b>BACKLOG:</b>
+- 1. air quality formatting: <br>
+  **`Hej! The tempearture in [city] is [current].[weather].[tp] c, and air humidity is  [current].[weather].[hu] %, with [current].[weather].[ws] m/s of wind`**
+  
+- 2. show current day and polish and swedish namedays
+- 3. deployment 
+- 4. create in memory todolist for all users
+- 5. add to in memory todolist
+- 6. add icon from user
+- 7. remind about duolingo at 22 CET
 
-
-Teaching git to birds:
+Teaching git:
 - branching
 - merge
 - rebase

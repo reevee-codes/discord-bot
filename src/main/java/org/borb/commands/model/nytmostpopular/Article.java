@@ -23,6 +23,7 @@ public class Article {
 
     private String imageUrl;
 
+
     public Article(Long id, String url, String section, String subsection, String byline, String title, String summary, Media[] media, String imageUrl) {
         this.id = id;
         this.url = url;
@@ -33,6 +34,9 @@ public class Article {
         this.summary = summary;
         this.media = media;
         this.imageUrl = imageUrl;
+    }
+
+    public Article() {
     }
 
     public Article(String title) {
@@ -109,5 +113,13 @@ public class Article {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "Article: " +
+                ", title='" + title + '\'' +
+                ", summary='" + summary + '\'' +
+                '}';
     }
 }

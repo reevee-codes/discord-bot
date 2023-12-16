@@ -14,7 +14,6 @@ public class Main {
         try {
             CommandLine cmd = parser.parse(options, args);
 
-            // check if the help argument was provided
             if (cmd.hasOption("help")) {
                 formatter.printHelp("Help Menu", options);
                 System.exit(0);

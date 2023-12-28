@@ -1,4 +1,4 @@
-package org.borb.commands.model.nytmostpopular;
+package org.borb.commands.newyorktimes.model.nytmostpopular;
 
 public class NytResponse {
 

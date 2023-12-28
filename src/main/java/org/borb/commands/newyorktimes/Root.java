@@ -3,7 +3,7 @@ package org.borb.commands.newyorktimes;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Root{
+public class Root {
     public String status;
     public String copyright;
     public String section;

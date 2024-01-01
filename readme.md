@@ -11,7 +11,7 @@
 
 - 1. Fix "!air" and do air quality response formatting: <br>
   "Hej! The tempearture in [city] is [current].[weather].[tp] c, and air humidity is  [current].[weather].[hu] %, with [current].[weather].[ws] m/s of wind"<br>
-  
+- + adding image to response to 1:  load an image based on [current].[weather].[ic]
 - 2. show current day and polish and swedish namedays<br>
 - 3. deployment <br>
 - 4. create in memory todolist for all users<br>

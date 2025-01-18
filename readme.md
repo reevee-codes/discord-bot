@@ -1,10 +1,5 @@
 <img src="src/main/resources/assets/borb.gif"/>
 <h3>BOTS COMMANDS:</h3>
-!andzelika - nani <br>
-!jacek - itadakimasu <br>
-!shirley <br>
-!sorinuwu <br>
-!ganbatte <br>
 !world 5 - get 5 most popular articles (select chosen number) <br>
 - ---------------------------------
 <h3>BACKLOG:</h3>
@@ -19,19 +14,3 @@
 - 6. add icon from user<br>
 - 7. remind about duolingo at 22 CET<br>
 - -----------------------------------------------------------
-<h3>Teaching git:</h3>
-- branching
-- merge
-- rebase
-- merge vs rebase
-- PR 
-- head
-- resolving conflicts
-- ls-tree
-- index
-- stash
-- pull vs fetch
-- squash multiple commits into single
-- git stash apply vs git stash pop
-- git branch --merged
-- git revert

@@ -56,7 +56,7 @@ public class NewYorkTimesCommands extends ListenerAdapter {
                 }
             }
         } else {
-            articles.add(new Article("Sorry, having trouble fetching Most Popular.."));
+            articles.add(new Article("Sorry, having trouble fetching Most Popular..."));
         }
         return articles;
     }

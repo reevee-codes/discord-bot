@@ -3,7 +3,7 @@ package org.borb;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
-import org.borb.commands.air.AirPollutionCommands;
+import org.borb.commands.temperature.TemperatureCommands;
 import org.borb.commands.newyorktimes.NewYorkTimesCommands;
 import org.borb.commands.PictureCommand;
 import org.springframework.web.client.RestTemplate;
@@ -51,7 +51,7 @@ public class GrindAssistantBot {
                 .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                 .addEventListeners(
                     new PictureCommand(),
-                    new AirPollutionCommands(restTemplate, apiKey),
+                    new TemperatureCommands(),
                     new NewYorkTimesCommands()
                 )
                 .build();

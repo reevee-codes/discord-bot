@@ -1,11 +1,11 @@
 package org.borb;
 
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
-import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
-import net.dv8tion.jda.api.sharding.ShardManager;
 import org.borb.commands.air.AirPollutionCommands;
 import org.borb.commands.newyorktimes.NewYorkTimesCommands;
-import org.borb.commands.pictures.PictureCommands;
+import org.borb.commands.PictureCommand;
 import org.springframework.web.client.RestTemplate;
 
 import javax.security.auth.login.LoginException;
@@ -15,15 +15,15 @@ import java.util.Properties;
 
 public class GrindAssistantBot {
     protected static GrindAssistantBot selfBot;
-    private ShardManager shardManager = null;
+    private JDA jda = null;
     private final Properties properties;
 
     public GrindAssistantBot(String token) {
         properties = loadProperties();
         try {
-            shardManager = buildShardManager(token);
+            buildBot(token);
         } catch (LoginException e) {
-            System.out.println("Failed to start bot, RIPPU");
+            System.out.println("Failed to start bot!");
             System.exit(0);
         }
     }
@@ -43,19 +43,17 @@ public class GrindAssistantBot {
         return props;
     }
 
-    private ShardManager buildShardManager(String token) throws LoginException {
+    private void buildBot(String token) throws LoginException {
         RestTemplate restTemplate = new RestTemplate();
         String apiKey = properties.getProperty("airvisual.api.key");
         
-        DefaultShardManagerBuilder builder =
-                DefaultShardManagerBuilder.createDefault(token)
-                    .enableIntents(GatewayIntent.MESSAGE_CONTENT)
-                    .addEventListeners(
-                        new PictureCommands(),
-                        new AirPollutionCommands(restTemplate, apiKey),
-                        new NewYorkTimesCommands()
-                    );
-
-        return builder.build();
+        jda = JDABuilder.createDefault(token)
+                .enableIntents(GatewayIntent.MESSAGE_CONTENT)
+                .addEventListeners(
+                    new PictureCommand(),
+                    new AirPollutionCommands(restTemplate, apiKey),
+                    new NewYorkTimesCommands()
+                )
+                .build();
     }
 }

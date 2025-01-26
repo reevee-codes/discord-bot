@@ -22,7 +22,6 @@ public class Main {
             String token = cmd.hasOption("token") ? cmd.getOptionValue("token") : null;
             if (token == null) {
                 System.out.println("ERROR: No token provided, please provide a token using the -t or --token flag.");
-                formatter.printHelp("", options);
                 System.exit(0);
             }
 

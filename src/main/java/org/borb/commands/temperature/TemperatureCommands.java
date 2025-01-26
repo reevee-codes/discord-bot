@@ -56,7 +56,7 @@ public class TemperatureCommands extends ListenerAdapter {
             JSONObject currentWeather = jsonResponse.getJSONObject("current_weather");
             double temperature = currentWeather.getDouble("temperature");
             double windSpeed = currentWeather.getDouble("windspeed");
-            return String.format("Temperature: %.1f°C, Wind Speed: %.1f km/h", temperature, windSpeed);
+            return String.format("Temperature: %.1f°C, Wind Speed: %.1f km/h for Gdańsk", temperature, windSpeed);
         } else {
             throw new Exception("Current weather data is not available in the response.");
         }

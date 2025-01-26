@@ -63,13 +63,11 @@ public class PictureCommand extends ListenerAdapter {
             logger.error("No image found for command: {}", command);
             return;
         }
-
         if (!isValidImageFormat(imagePath)) {
             logger.error("Unsupported image format for command: {}", command);
             channel.sendMessage("Sorry, this image format is not supported. Supported formats: JPG, JPEG, PNG, GIF, WEBP").queue();
             return;
         }
-
         if (imagePath.startsWith("http")) {
             EmbedBuilder result = new EmbedBuilder();
             result.setTitle(command);

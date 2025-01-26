@@ -9,14 +9,21 @@ import net.dv8tion.jda.api.utils.FileUpload;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Properties;
+import java.util.Set;
 
 public class PictureCommand extends ListenerAdapter {
     private static final Logger logger = LoggerFactory.getLogger(PictureCommand.class);
     private final Properties imageCommands;
+    
+    // Discord supported image formats
+    private static final Set<String> SUPPORTED_FORMATS = new HashSet<>(Arrays.asList(
+        ".jpg", ".jpeg", ".png", ".gif", ".webp"
+    ));
 
     public PictureCommand() {
         imageCommands = loadImageCommands();
@@ -57,6 +64,12 @@ public class PictureCommand extends ListenerAdapter {
             return;
         }
 
+        if (!isValidImageFormat(imagePath)) {
+            logger.error("Unsupported image format for command: {}", command);
+            channel.sendMessage("Sorry, this image format is not supported. Supported formats: JPG, JPEG, PNG, GIF, WEBP").queue();
+            return;
+        }
+
         if (imagePath.startsWith("http")) {
             EmbedBuilder result = new EmbedBuilder();
             result.setTitle(command);
@@ -64,16 +77,25 @@ public class PictureCommand extends ListenerAdapter {
             channel.sendMessageEmbeds(result.build()).queue();
         } else {
             try {
-                File imageFile = new File(getClass().getResource(imagePath).getFile());
-                if (!imageFile.exists()) {
+                InputStream imageStream = getClass().getResourceAsStream(imagePath);
+                if (imageStream == null) {
                     logger.error("Image file not found: {}", imagePath);
+                    channel.sendMessage("Sorry, I couldn't find that image.").queue();
                     return;
                 }
-                channel.sendFiles(FileUpload.fromData(imageFile)).queue();
+                
+                String fileName = imagePath.substring(imagePath.lastIndexOf('/') + 1);
+                channel.sendFiles(FileUpload.fromData(imageStream, fileName)).queue();
             } catch (Exception e) {
                 logger.error("Error sending local image for command: {}", command, e);
+                channel.sendMessage("Sorry, there was an error sending the image.").queue();
             }
         }
+    }
+
+    private boolean isValidImageFormat(String path) {
+        String lowerPath = path.toLowerCase();
+        return SUPPORTED_FORMATS.stream().anyMatch(lowerPath::endsWith);
     }
 
     private String findImageByCommand(String command) {

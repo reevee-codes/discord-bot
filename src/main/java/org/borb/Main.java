@@ -26,7 +26,7 @@ public class Main {
                 System.exit(0);
             }
 
-            MaryoBot.selfBot = new MaryoBot(token);
+            GrindAssistantBot.selfBot = new GrindAssistantBot(token);
 
         } catch (ParseException e) {
             System.out.println(e.getMessage());
